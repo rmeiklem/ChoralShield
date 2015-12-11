@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Concert()
+comment1.params=dataItems
+comment1.target=void\ readTicketDetails(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getticketid()
+comment3.params=
+comment3.target=char\ getmethodofpurchase()
+comment4.params=
+comment4.target=java.lang.String\ writeTicketDetails()
+numComments=5

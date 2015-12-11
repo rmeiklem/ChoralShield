@@ -2,36 +2,54 @@
 public class Concert
 {
     private String customerid;
+    private String ticketid;
     private int numberoftickets;
-    private char ticketid;
     private char methodofpurchase;
-    private int seat;
-
+    
     public Concert()
     {
         customerid = "";
+        ticketid = "";
         numberoftickets = 0;
-        ticketid = 0;
         methodofpurchase = 0;
-        seat = 0;
+        
 
     }
 
-    public void readMemberDetails(String dataItems)
+    public void readTicketDetails(String dataItems)
     {
 
-        
         String[] rowItems = dataItems.split(",");
-
        
-        Customerid = rowItems[0];
-        numberoftickets = integer.parseint(rowItems[1]);
-        ticketid = Float.parseFloat(rowItems[3]);
-        memberID = rowItems[4];
-        category = (rowItems[5]).charAt(0);
+        customerid = rowItems[0];
+        ticketid = rowItems[1];
+        numberoftickets = Integer.parseInt(rowItems[2]);
+        methodofpurchase = (rowItems[3]).charAt(0);
+        
 
-        bmi = weight/(height*height/10000);
     }
-
     
+    public String getticketid(){
+        return ticketid;
+    }
+    
+    public char getmethodofpurchase(){
+        return methodofpurchase;
+    }
+    
+    public String writeTicketDetails()
+    {
+      
+        String TicketData = "";
+        TicketData = TicketData.concat(customerid);
+        TicketData = TicketData.concat(",");
+        TicketData = TicketData.concat(ticketid);
+        TicketData = TicketData.concat(",");
+        TicketData = TicketData.concat(Integer.toString(numberoftickets));
+        TicketData = TicketData.concat(",");
+        TicketData = TicketData.concat(Character.toString(methodofpurchase));
+       
+       return  TicketData;
+
+    }
 }
