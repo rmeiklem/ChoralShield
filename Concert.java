@@ -16,7 +16,7 @@ public class Concert
 
     }
 
-    public void readTicketDetails(String dataItems)
+    public void readConcertDetails(String dataItems)
     {
 
         String[] rowItems = dataItems.split(",");
@@ -37,19 +37,19 @@ public class Concert
         return methodofpurchase;
     }
     
-    public String writeTicketDetails()
+    public String writeConcertDetails()
     {
       
-        String TicketData = "";
-        TicketData = TicketData.concat(customerid);
-        TicketData = TicketData.concat(",");
-        TicketData = TicketData.concat(ticketid);
-        TicketData = TicketData.concat(",");
-        TicketData = TicketData.concat(Integer.toString(numberoftickets));
-        TicketData = TicketData.concat(",");
-        TicketData = TicketData.concat(Character.toString(methodofpurchase));
+        String ConcertData = "";
+        ConcertData = ConcertData.concat(customerid);
+        ConcertData = ConcertData.concat(",");
+        ConcertData = ConcertData.concat(ticketid);
+        ConcertData = ConcertData.concat(",");
+        ConcertData = ConcertData.concat(Integer.toString(numberoftickets));
+        ConcertData = ConcertData.concat(",");
+        ConcertData = ConcertData.concat(Character.toString(methodofpurchase));
        
-       return  TicketData;
+       return  ConcertData;
 
     }
 }
