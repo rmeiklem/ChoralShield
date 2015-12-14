@@ -3,7 +3,7 @@ import java.io.*;
 public class Order
 {
 
-    private Concert memberList[];
+    private Concert OrderList[];
 
     int noOfOrders;
     FILEREADCSV Concertfile;
@@ -16,22 +16,28 @@ public class Order
     public void processMembers() throws IOException
     {
         setUpMemberList();
-        countOKbmi();
+        countOrders();
     }
 
     public void setUpMemberList() throws IOException
     {
         System.out.println("Order details: Concert Order Update");
         System.out.println("** Preparing to read data file.");
-
+       
+        OrderList = new Concert[noOfOrders];
+        
+        for  (int i = 0; i < noOfOrders; i++) {
+           OrderList[i] = new Concert();
+            
+           OrderList[i].readOrderDetails(dataRows[i+1]);
+        }
     }
 
-    public void countOKbmi() throws IOException
+    public void countOrders() throws IOException
     {
         String[] dataRows = Concertfile.readCSVtable();
-       
-        noOfOrders = dataRows.length ;
 
+        noOfOrders = dataRows.length ;
 
         
         System.out.println("** " + noOfOrders + " rows read.\n\n");
