@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 import java.io.*;
-import java.util.Calandar;
+import java.time.*;
 public class School
 {
 
@@ -10,14 +10,13 @@ public class School
     FILEWRITECSV Concertresultfile;
     private int noOfConcerts;
     private int year;
-    private int FridayNumber;
+    private int Fridaytickets;
     private int FridaySales;
-    private int WedThurNumber;
-    private int WedthurSales;
+    private int WedThurtickets;
+    private int WedThurSales;
     private int Total;
     private int Websitesales;
     private int Schoolsales;
-    private string Mostpopularmethod;
 
     public School()
     {
@@ -29,9 +28,8 @@ public class School
     {
         setupConcertList();
 
-        getdate();
         calculation();
-        Money();
+        Sales();
 
         Fridaydata();
         displayConcerts();
@@ -59,27 +57,70 @@ public class School
     public void calculation() {
         for (int i=0; i<noOfConcerts; i++)
         {
-            if (ConcertList[i].getticketid().equals ("F1") || Concertlist[i].getticketid().equals ("F2") || Concertlist[i].getticketid().equals ("F3"))
+            if (ConcertList[i].getticketid().equals ("F1") || ConcertList[i].getticketid().equals ("F2") || ConcertList[i].getticketid().equals ("F3"))
             {  
-              FridayNumber = FridayNumber + 1;
+                Fridaytickets = Fridaytickets + ConcertList[i].getnumberoftickets();
             }
             else {
-                WedThurNumber = WedThurNumber + 1;
+                WedThurtickets = WedThurtickets + ConcertList[i].getnumberoftickets();
             }
         }
-        for (int i=0; i<noOftickets; i++)
+
+        FridaySales = Fridaytickets*10;
+        WedThurSales = WedThurtickets*5;
+        Total = FridaySales + WedThurSales;
+    }
+
+    public void Sales() {
+        for (int i=0; i<noOfConcerts; i++)
         {
-            if (ConcertList[i].getnumberoftickets
+            if (ConcertList[i].getmethodofpurchase()==('W')) 
+            {
+                Websitesales = Websitesales + 1;
+            }
+            else
+            {
+                Schoolsales = Schoolsales + 1;
+            }
+        }        
+        if (Websitesales>Schoolsales)
+        {
+            System.out.println("Website");
         }
-        
+        else 
+        {
+            System.out.println("School");
+        }
+
     }
-    
-    public void money() {
+
+    public void Fridaydata() throws IOException
+    {
+          String fileContent = "";
+        int count = 0;
+        for (int i = 0; i < noOfConcerts; i++) 
+        {
+            if(ConcertList[i].getticketid().equals ("F1") || ConcertList[i].getticketid().equals ("F2") || ConcertList[i].getticketid().equals ("F3"))
+            {
+                count = count + 1;
+                if (count>1) 
+                {
+                    fileContent = fileContent.concat("\n");
+                }
+                fileContent = fileContent.concat(ConcertList[i].writeConcertDetails());
+            }
+        }
+
         
-    }
+        System.out.println("Fridays data being written");
+        Concertresultfile.writeCSVtable(fileContent);
+        System.out.println("** File written and closed.");
+        }
     
+
     public void displayConcerts(){
-        System.out.println("Essell Academy Choral Shield" + " " + year);
-        
-    }
+        System.out.println("Essell Academy Choral Shield" + " " + Year.now().getValue());
+
+     }
+
 }

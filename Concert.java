@@ -33,7 +33,7 @@ public class Concert
         return ticketid;
     }
     
-    public int numberoftickets(){
+    public int getnumberoftickets(){
         return numberoftickets;
     }
     
