@@ -33,9 +33,14 @@ public class Concert
         return ticketid;
     }
     
+    public int numberoftickets(){
+        return numberoftickets;
+    }
+    
     public char getmethodofpurchase(){
         return methodofpurchase;
     }
+   
     
     public String writeConcertDetails()
     {

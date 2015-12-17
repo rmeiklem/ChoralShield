@@ -67,6 +67,15 @@ public class School
                 WedThurNumber = WedThurNumber + 1;
             }
         }
+        for (int i=0; i<noOftickets; i++)
+        {
+            if (ConcertList[i].getnumberoftickets
+        }
+        
+    }
+    
+    public void money() {
+        
     }
     
     public void displayConcerts(){
