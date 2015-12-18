@@ -69,6 +69,8 @@ public class School
         FridaySales = Fridaytickets*10;
         WedThurSales = WedThurtickets*5;
         Total = FridaySales + WedThurSales;
+        
+        System.out.println("The total sales £" +  Total);
     }
 
     public void Sales() {
